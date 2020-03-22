@@ -1,0 +1,31 @@
+%h1 Listing stores
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Logo
+      %th Background image
+      %th Description
+      %th Valcher
+      %th Url
+      %th
+      %th
+      %th
+
+  %tbody
+    - @stores.each do |store|
+      %tr
+        %td= store.name
+        %td= store.logo
+        %td= store.background_image
+        %td= store.description
+        %td= store.valcher
+        %td= store.url
+        %td= link_to 'Show', store
+        %td= link_to 'Edit', edit_store_path(store)
+        %td= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Store', new_store_path
