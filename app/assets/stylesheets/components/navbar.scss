@@ -1,0 +1,65 @@
+@import "variables";
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffffd9;
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a { font-weight: 600 }
+
+  &--static { position: unset }
+
+  &__padding { padding: 20px }
+
+  &__mobile {
+    width: 100%;
+
+    #logo, #logo-project {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+    @include breakpoint("medium") { display: none }
+  }
+
+  &__content {
+    text-align: center;
+    display: none;
+
+    img { display: none }
+
+    @include breakpoint("medium") {
+      width: 100%;
+      text-align: initial;
+      img { display: initial }
+    }
+
+    @include breakpoint("medium") { display: block }
+
+    @include breakpoint("limiter");
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+
+    li { margin: 15px 0 }
+
+    @include breakpoint("medium") {
+      float: right;
+      width: fit-content;
+
+      li { display: inline; margin: 0 15px }
+    }
+  }
+}
