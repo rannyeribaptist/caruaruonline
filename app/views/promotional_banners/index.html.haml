@@ -1,0 +1,25 @@
+%h1 Listing promotional_banners
+
+%table
+  %thead
+    %tr
+      %th Store
+      %th Name
+      %th Banner
+      %th
+      %th
+      %th
+
+  %tbody
+    - @promotional_banners.each do |promotional_banner|
+      %tr
+        %td= promotional_banner.store
+        %td= promotional_banner.name
+        %td= promotional_banner.banner
+        %td= link_to 'Show', promotional_banner
+        %td= link_to 'Edit', edit_promotional_banner_path(promotional_banner)
+        %td= link_to 'Destroy', promotional_banner, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Promotional banner', new_promotional_banner_path

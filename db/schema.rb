@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_120219) do
+ActiveRecord::Schema.define(version: 2020_03_29_034240) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2020_03_22_120219) do
     t.index ["store_id"], name: "index_categories_on_store_id"
   end
 
+  create_table "promotional_banners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.string "name"
+    t.string "banner"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_promotional_banners_on_store_id"
+  end
+
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "logo"
@@ -42,7 +51,9 @@ ActiveRecord::Schema.define(version: 2020_03_22_120219) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "priority_points"
   end
 
   add_foreign_key "categories", "stores"
+  add_foreign_key "promotional_banners", "stores"
 end

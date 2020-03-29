@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :promotional_banners
   resources :stores
   devise_for :admins
   resources :admins

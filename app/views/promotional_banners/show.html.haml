@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Store:
+  = @promotional_banner.store
+%p
+  %b Name:
+  = @promotional_banner.name
+%p
+  %b Banner:
+  = @promotional_banner.banner
+
+= link_to 'Edit', edit_promotional_banner_path(@promotional_banner)
+\|
+= link_to 'Back', promotional_banners_path
